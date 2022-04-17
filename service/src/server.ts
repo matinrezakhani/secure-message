@@ -4,6 +4,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors'
 import {createConnection} from 'typeorm';
 import './cron';
+import { MessageController } from './controllers/message.controller';
 
 
 require('dotenv').config()
@@ -32,7 +33,7 @@ async function main(){
     const app = new App({
         port: process.env.PORT ? parseInt(process.env.PORT) : 5000,
         controllers: [
-
+            new MessageController
         ],
         middleWares: [
             cors(),

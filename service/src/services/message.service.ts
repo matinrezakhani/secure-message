@@ -1,6 +1,7 @@
 import { Message } from "./../entities/message.entity";
 import { getRepository } from "typeorm";
 import {v4 as UUID} from 'uuid'
+import * as Moment from 'jalali-moment'
 
 export class MessageService{
     private messageRepository = getRepository(Message);
@@ -15,8 +16,10 @@ export class MessageService{
         message.uuid = UUID();
         message.data = messageText;
         message.signature = signature;
-        message.created_at = new Date();
-
+        message.created_at = Moment().toDate()
+        message.expire_time = Moment().add(10, 'd').toDate()
+        message.delete_time = Moment().add(15, 'd').toDate()
+        
         await message.save();
         return message;
     }
