@@ -1,0 +1,70 @@
+@import './variables.scss';
+
+
+.ant-typography {
+font-family: $font !important;
+
+
+}
+.ant-btn {
+    font-family: $font !important;
+    height: auto !important;
+}
+
+.ant-btn-primary{
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+}
+.ant-btn-link{
+    color: $primary-color !important;
+}
+
+.ant-btn-primary[disabled]{
+    color: #9d9d9d !important;
+}
+
+.ant-input {
+    font-family: $font !important;
+    background-color: $primary-background-color !important;
+    color: $primary-text-color !important;
+}
+
+.ant-input:hover {
+    border-color: #4761a8!important;
+}
+.ant-input:focus,.ant-input-focused {
+    border-color: #4761a8 !important;
+    box-shadow: 0px 0px 2px 0px #4761a8 !important;
+}
+.ant-spin{
+    color: $primary-color !important;
+}
+
+.ant-notification-notice-message{
+    text-align: center;
+}
+
+.ant-notification-notice-description{
+    text-align: center;
+}
+
+.ant-modal-content{
+    background-color: $primary-background-color !important;
+}
+
+.ant-input-affix-wrapper{
+    background-color: $primary-background-color !important;
+}
+
+.ant-input-prefix{
+    color: $primary-text-color;
+}
+
+.ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused{
+    border-color: $primary-color !important;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+}
+
+
+
+  

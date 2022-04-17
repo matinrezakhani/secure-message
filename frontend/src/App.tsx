@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import {ConfigProvider} from 'antd';
+import 'antd/dist/antd.css';
+import './App.scss';
+import {Client as ConnectWallet} from '@kuknos/wallet-connect'
+
 
 function App() {
+
+  const [wallet, setWallet] = useState<ConnectWallet>({} as ConnectWallet);
+  const [publickey, setPublickey] = useState<string>('')
+  const [walletConnectLink, setWalletConnectLink] = useState<string>('')
+
+  useEffect(()=>{
+    initWallet()
+  },[])
+
+  const initWallet = async ()=>{
+    const wallet = new ConnectWallet({})
+    setWallet(wallet);
+    setWalletConnectLink(wallet.getWalletConnectLink())
+    const connectResponse = await wallet.connect();
+    if(connectResponse.status){
+      setPublickey(connectResponse.data.public)
+    }
+  }
+
+  console.log(walletConnectLink);
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ConfigProvider direction='rtl'>
+
+      </ConfigProvider>
     </div>
   );
 }
