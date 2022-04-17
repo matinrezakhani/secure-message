@@ -11,15 +11,15 @@ export class MessageService{
     }
 
 
-    public async createMessage(messageText: string, signature: string = null): Promise<Message>{
+    public async createMessage(data: string, signature: string = null): Promise<Message>{
         let message: Message = new Message();
         message.uuid = UUID();
-        message.data = messageText;
+        message.data = data;
         message.signature = signature;
         message.created_at = Moment().toDate()
         message.expire_time = Moment().add(10, 'd').toDate()
         message.delete_time = Moment().add(15, 'd').toDate()
-        
+
         await message.save();
         return message;
     }
