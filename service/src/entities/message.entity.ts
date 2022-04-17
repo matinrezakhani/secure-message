@@ -2,12 +2,15 @@ import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
 
 
 @Entity()
-export class User extends BaseEntity{
+export class Message extends BaseEntity{
     @PrimaryGeneratedColumn('increment') 
     id: number
 
     @Column({nullable: true, default: null})
-    message: string
+    uuid: string
+
+    @Column({nullable: true, default: null})
+    data: string
 
     @Column({nullable: true, default: null})
     signature: string
