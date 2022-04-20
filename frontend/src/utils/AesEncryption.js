@@ -32,7 +32,7 @@ export function decryptAES(cipherText, password) {
             padding: CryptoJS.pad.Pkcs7
         });
         plainText = bytes.toString(CryptoJS.enc.Utf8);
-        plainText = JSON.parse(plainText)
+        //plainText = JSON.parse(plainText)
 
         return plainText
     } catch (error) {

@@ -5,3 +5,12 @@
 .App{
 
 }
+
+.Toastify__toast-body{
+    text-align: right;
+    direction: rtl;
+}
+
+.Toastify__toast-container{
+    right: 0 !important;
+}
